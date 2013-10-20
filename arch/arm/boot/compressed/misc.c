@@ -1,31 +1,9 @@
-/*
- * misc.c
- * 
- * This is a collection of several routines from gzip-1.0.3 
- * adapted for Linux.
- *
- * malloc by Hannu Savolainen 1993 and Matthias Urlichs 1994
- *
- * Modified for ARM Linux by Russell King
- *
- * Nicolas Pitre <nico@visuaide.com>  1999/04/14 :
- *  For this code to run directly from Flash, all constant variables must
- *  be marked with 'const' and all other variables initialized at run-time 
- *  only.  This way all non constant variables will end up in the bss segment,
- *  which should point to addresses in RAM and cleared to 0 on start.
- *  This allows for a much quicker boot time.
- */
 
 unsigned int __machine_arch_type;
 
-#define _LINUX_STRING_H_
-
-#include <linux/compiler.h>	/* for inline */
-#include <linux/types.h>	/* for size_t */
-#include <linux/stddef.h>	/* for NULL */
+#include <linux/compiler.h>	
+#include <linux/types.h>
 #include <linux/linkage.h>
-#include <asm/string.h>
-
 
 static void putstr(const char *ptr);
 extern void error(char *x);
@@ -101,44 +79,6 @@ static void putstr(const char *ptr)
 	flush();
 }
 
-
-void *memcpy(void *__dest, __const void *__src, size_t __n)
-{
-	int i = 0;
-	unsigned char *d = (unsigned char *)__dest, *s = (unsigned char *)__src;
-
-	for (i = __n >> 3; i > 0; i--) {
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-	}
-
-	if (__n & 1 << 2) {
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-		*d++ = *s++;
-	}
-
-	if (__n & 1 << 1) {
-		*d++ = *s++;
-		*d++ = *s++;
-	}
-
-	if (__n & 1)
-		*d++ = *s++;
-
-	return __dest;
-}
-
-/*
- * gzip declarations
- */
 extern char input_data[];
 extern char input_data_end[];
 
@@ -159,7 +99,7 @@ void error(char *x)
 	putstr(x);
 	putstr("\n\n -- System halted");
 
-	while(1);	/* Halt */
+	while(1);	
 }
 
 asmlinkage void __div0(void)
