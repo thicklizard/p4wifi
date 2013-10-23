@@ -2012,6 +2012,12 @@ static struct clk tegra_pll_u = {
 
 static struct clk_pll_freq_table tegra_pll_x_freq_table[] = {
 #if defined(CONFIG_TEGRA_OVERCLOCK)
+	 /* 1.504 GHz */
+        { 12000000, 1504000000, 752, 6, 1, 12},
+        { 13000000, 1504000000, 926, 8, 1, 12},
+        { 19200000, 1504000000, 940, 12, 1, 8},
+        { 26000000, 1504000000, 752, 13, 1, 12},
+
 	/* 1.4 GHz */
 	{ 12000000, 1400000000, 700, 6,   1, 12},
 	{ 13000000, 1400000000, 969, 9,   1, 12},
@@ -2082,7 +2088,7 @@ static struct clk tegra_pll_x = {
 	.reg       = 0xe0,
 	.parent    = &tegra_clk_m,
 #if defined(CONFIG_TEGRA_OVERCLOCK)
-	.max_rate  = 1400000000,
+	.max_rate  = 1504000000,
 #else
 	.max_rate  = 1000000000,
 #endif
@@ -2232,7 +2238,7 @@ static struct clk tegra_clk_cclk = {
 	.reg	= 0x20,
 	.ops	= &tegra_super_ops,
 #if defined(CONFIG_TEGRA_OVERCLOCK)
-	.max_rate = 1400000000,
+	.max_rate = 1504000000,
 #else
 	.max_rate = 1000000000,
 #endif
@@ -2252,7 +2258,7 @@ static struct clk tegra_clk_virtual_cpu = {
 	.parent    = &tegra_clk_cclk,
 	.ops       = &tegra_cpu_ops,
 #if defined(CONFIG_TEGRA_OVERCLOCK)
-	.max_rate  = 1400000000,
+	.max_rate  = 1504000000,
 #else
 	.max_rate  = 1000000000,
 #endif

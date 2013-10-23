@@ -1112,9 +1112,8 @@ __getblk_slow(struct block_device *bdev, sector_t block, int size)
 		bh = __find_get_block(bdev, block, size);
 		if (bh)
 			return bh;
-
-		return NULL;
 	}
+		return NULL;
 }
 
 /*
