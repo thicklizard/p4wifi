@@ -2675,9 +2675,9 @@ static struct tegra_sku_rate_limit sku_limits[] =
 	RATE_LIMIT("pll_x",	750000000, 0x07, 0x10),
 
 #if defined(CONFIG_TEGRA_OVERCLOCK)
-	RATE_LIMIT("cpu",	1400000000, 0x04, 0x08, 0x0F),
-	RATE_LIMIT("cclk",	1400000000, 0x04, 0x08, 0x0F),
-	RATE_LIMIT("pll_x",	1400000000, 0x04, 0x08, 0x0F),
+	RATE_LIMIT("cpu",	1504000000, 0x04, 0x08, 0x0F),
+	RATE_LIMIT("cclk",	1504000000, 0x04, 0x08, 0x0F),
+	RATE_LIMIT("pll_x",	1504000000, 0x04, 0x08, 0x0F),
 #else
 	RATE_LIMIT("cpu",	1000000000, 0x04, 0x08, 0x0F),
 	RATE_LIMIT("cclk",	1000000000, 0x04, 0x08, 0x0F),
@@ -2798,6 +2798,22 @@ static struct cpufreq_frequency_table freq_table_1p4GHz[] = {
         { 9, 1400000 },
         { 10, CPUFREQ_TABLE_END },
 };
+
+static struct cpufreq_frequency_table freq_table_1p5GHz[] = {
+	{ 0, 216000 },
+        { 1, 312000 },
+        { 2, 456000 },
+        { 3, 608000 },
+        { 4, 760000 },
+        { 5, 816000 },
+        { 6, 912000 },
+        { 7, 1000000 },
+        { 8, 1200000 },
+        { 9, 1400000 },
+	{ 10, 1504000 },
+        { 11, CPUFREQ_TABLE_END },
+};
+
 #endif
 
 static struct tegra_cpufreq_table_data cpufreq_tables[] = {
@@ -2806,6 +2822,7 @@ static struct tegra_cpufreq_table_data cpufreq_tables[] = {
 	{ freq_table_1p2GHz, 2, 7, 0, 8 },
 #if defined(CONFIG_TEGRA_OVERCLOCK)
 	{ freq_table_1p4GHz, 2, 6, 0, 7 },
+	{ freq_table_1p5GHz, 2, 6, 0, 7 },
 #endif
 };
 
