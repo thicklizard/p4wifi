@@ -122,7 +122,7 @@ extern unsigned long avenrun[];		/* Load averages */
 extern void get_avenrun(unsigned long *loads, unsigned long offset, int shift);
 
 #define FSHIFT		11		/* nr of bits of precision */
-#define FIXED_1		(1<<FSHIFT)	/* 1.0 as fixed-point */
+#define FIXED_1		(1UL<<FSHIFT)  	/* 1.0 as fixed-point */
 #define LOAD_FREQ	(4*HZ+61)	/* 5 sec intervals */
 #define EXP_1    	1896		/* 1/exp(4.61sec/1min) as fixed-point */
 #define EXP_5    	2017		/* 1/exp(4.61sec/5min) */
