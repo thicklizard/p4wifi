@@ -361,7 +361,7 @@ static inline void gizmo_writel(unsigned long value, unsigned long offset)
 	writel(value, IO_TO_VIRT(TEGRA_AHB_GIZMO_BASE + offset));
 }
 
-static void __init tegra_init_ahb_gizmo_settings(void)
+/*static void __init tegra_init_ahb_gizmo_settings(void)
 {
 	unsigned long val;
 
@@ -406,7 +406,7 @@ static void __init tegra_init_ahb_gizmo_settings(void)
 	val |= PREFETCH_ENB | USB2_MST_ID | ADDR_BNDRY(0xc) | INACTIVITY_TIMEOUT(0x1000);
 	gizmo_writel(val, AHB_MEM_PREFETCH_CFG4);
 }
-
+*/
 void __init tegra_init_early(void)
 {
 #ifndef CONFIG_SMP
