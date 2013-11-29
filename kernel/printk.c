@@ -128,7 +128,7 @@ static unsigned log_end;	/* Index into log_buf: most-recently-written-char + 1 *
 /*
  * If exclusive_console is non-NULL then only this console is to be printed to.
  */
-static struct console *exclusive_console;
+//static struct console *exclusive_console;
 
 /*
  *	Array of consoles built from command line options (console=)
@@ -1374,7 +1374,7 @@ void console_unlock(void)
 {
 	unsigned long flags;
 	unsigned _con_start, _log_end;
-	unsigned wake_klogd = 0, retry = 0;
+	unsigned wake_klogd = 0;
 
 	if (console_suspended) {
 		up(&console_sem);
@@ -1383,7 +1383,7 @@ void console_unlock(void)
 
 	console_may_schedule = 0;
 
-again:
+//again:
 	for ( ; ; ) {
 		spin_lock_irqsave(&logbuf_lock, flags);
 		wake_klogd |= log_start - log_end;

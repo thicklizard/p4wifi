@@ -217,6 +217,7 @@ int nvhost_t20_boost_2d(bool enable)
 		t20_devices[2].clockgate_delay = NVHOST_DOUBLE_CLOCKGATE_DELAY;
 	else
 		t20_devices[2].clockgate_delay = 0;
+		return 0;
 }
 EXPORT_SYMBOL(nvhost_t20_boost_2d);
 

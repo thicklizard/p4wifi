@@ -229,7 +229,7 @@ static int fg_read_vcell(void)
 static int fg_read_voltage_now(void)
 {
 	struct i2c_client *client = fg_i2c_client;
-	struct max17042_chip *chip = i2c_get_clientdata(client);
+	//struct max17042_chip *chip = i2c_get_clientdata(client);
 	u8 data[2];
 	u32 voltage_now;
 	u16 w_data;

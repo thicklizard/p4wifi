@@ -69,7 +69,7 @@ void nvhost_syncpt_save(struct nvhost_syncpt *sp)
  */
 u32 nvhost_syncpt_update_min(struct nvhost_syncpt *sp, u32 id)
 {
-	u32 val;
+	u32 val= 0;
 
 	BUG_ON(!syncpt_op(sp).update_min);
 

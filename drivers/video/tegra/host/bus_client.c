@@ -196,7 +196,7 @@ static ssize_t nvhost_channelwrite(struct file *filp, const char __user *buf,
 	int err = 0;
 	struct nvhost_job *job = priv->job;
 	struct nvhost_submit_hdr_ext *hdr = &priv->hdr;
-	const char *chname = priv->ch->dev->name;
+	//const char *chname = priv->ch->dev->name;
 
 	if (!job)
 		return -EIO;

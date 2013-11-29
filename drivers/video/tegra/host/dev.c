@@ -116,7 +116,7 @@ static int nvhost_ioctl_ctrl_syncpt_waitex(struct nvhost_ctrl_userctx *ctx,
 	struct nvhost_ctrl_syncpt_waitex_args *args)
 {
 	u32 timeout;
-	int err;
+	
 	if (args->id >= ctx->dev->syncpt.nb_pts)
 		return -EINVAL;
 	if (args->timeout == NVHOST_NO_TIMEOUT)
