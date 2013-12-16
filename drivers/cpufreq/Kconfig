@@ -149,6 +149,12 @@ config CPU_FREQ_GOV_DANCEDANCE
         tristate "'dancedance' cpufreq governor"
         depends on CPU_FREQ
 
+config CPU_FREQ_DEFAULT_GOV_WHEATLEY
+	bool "wheatley"
+	select CPU_FREQ_GOV_WHEATLEY
+	help
+	  Use the CPUFreq governor 'wheatley' as default.
+
 config CPU_FREQ_GOV_USERSPACE
 	tristate "'userspace' governor for userspace frequency scaling"
 	help
