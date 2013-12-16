@@ -104,7 +104,7 @@ unsigned int eq_band_values[5][4] = {
 };
 
 // 3D effect
-bool stereo_expansion = false;
+bool stereo_expansion = true;
 short unsigned int stereo_expansion_gain = 16;
 
 // keep here a pointer to the codec structure
